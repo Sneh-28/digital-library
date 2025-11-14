@@ -32,16 +32,20 @@ public class SecurityConfig {
                 // Which API calls require authentication are written here:
                 .authorizeHttpRequests(auth->
                         auth.requestMatchers("/redis/**").permitAll()
+                                .requestMatchers("/book/**").permitAll()
                                 .anyRequest()
                                 .authenticated())
 
-                //default browser form
-                .formLogin(Customizer.withDefaults())
-                .oauth2Login(Customizer.withDefaults())
-                .httpBasic(Customizer.withDefaults())
+//                //default browser form
+//                .formLogin(Customizer.withDefaults())
+//                .oauth2Login(Customizer.withDefaults())
+//                .httpBasic(Customizer.withDefaults())
+//
+//                //logout
+//                .logout(LogoutConfigurer::permitAll);
 
-                //logout
-                .logout(LogoutConfigurer::permitAll);
+                // enable CORS
+                .cors(Customizer.withDefaults()) ;
 
                 return httpSecurity.build();
     }
