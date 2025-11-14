@@ -1,4 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
+import BookList from "./components/BookList";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<h2>Welcome to Digital Library</h2>} />
-        <Route path="/books" element={<h2>Book List</h2>} />
+        <Route path="/books" element={<BookList />} />
         <Route path="/add" element={<h2>Add New Book</h2>} />
       </Routes>
     </div>
